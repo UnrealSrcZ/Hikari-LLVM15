@@ -14,7 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.6
         with:
-          submodules: "recursive"  # Removed the ref to check the default branch
+          ref: llvm-swift-5.10-RELEASE
+          submodules: recursive
+      
+      - name: Verify Checkout
+        run: ls -la
+        shell: bash
+
+      - name: Verify llvm Directory
+        run: ls -la llvm
+        shell: bash
 
       - name: Setup python
         uses: actions/setup-python@v5
